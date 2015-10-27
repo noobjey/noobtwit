@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   delete '/logout', to: 'session#destroy'
 
   get 'dashboard', to: 'dashboard#index'
+
+  resource :user, only: [:update]
 end
