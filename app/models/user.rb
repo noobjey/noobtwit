@@ -10,6 +10,22 @@ class User < ActiveRecord::Base
 
     user
   end
+
+  def profile_pic
+    "https://pbs.twimg.com/profile_images/488101956/noobjEdit_bigger.jpg"
+  end
+
+  def number_of_tweets
+    "234"
+  end
+
+  def number_of_followers
+    "23"
+  end
+
+  def number_of_following
+    "43"
+  end
 end
 
 
