@@ -4,7 +4,6 @@ class SessionController < ApplicationController
   end
 
   def create
-    byebug
     render text: request.env["omniauth.auth"].inspect
   end
 end
