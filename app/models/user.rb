@@ -26,6 +26,10 @@ class User < ActiveRecord::Base
   def number_of_following
     "43"
   end
+
+  def tweet
+  #   send info to service to add tweet
+  end
 end
 
 
