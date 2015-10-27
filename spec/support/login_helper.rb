@@ -27,4 +27,9 @@ module LoginHelper
     click_on "Login with Twitter"
     expect(current_path).to eq(dashboard_path)
   end
+
+  def logged_in_user()
+    User.find_by(uid: '84891952')
+  end
+
 end
