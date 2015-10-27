@@ -28,7 +28,11 @@ class User < ActiveRecord::Base
   end
 
   def tweet
-  #   send info to service to add tweet
+    #   send info to service to add tweet
+  end
+
+  def feed
+    [{ name: "GoogleCloudPlatform", screen_name: "@googlecloud", date: "Wed Aug 29 17:12:58 +0000 2012", text: "nso infuriating, iOS9 Safari insists on dumping you in an app for some types of links now, which does not even work half the time." }, { name: "Tome Herman", screen_name: "@th", date: "Wed Aug 29 17:12:58 +0000 2012", text: "nso infuriating, iOS9 Safari insist time." } ]
   end
 end
 
