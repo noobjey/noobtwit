@@ -3,6 +3,7 @@
     <div class="panel panel-default">
       <div class="panel-body">
         <p>Welcome <%= current_user.name %></p>
+        <div><%= link_to "Logout", logout_path, method: :delete  %></div>
       </div>
     </div>
   </div>

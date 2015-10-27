@@ -20,6 +20,7 @@ module LoginHelper
   end
 
   def login_user()
+    Capybara.app = Noobtwit::Application
     stub_omniauth
     visit root_path
 
