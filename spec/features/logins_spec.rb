@@ -29,7 +29,7 @@ RSpec.feature "Logins", type: :feature do
         click_on login_button
 
         expect(current_path).to eq dashboard_path
-        expect(page).to have_content "Welcome"
+        expect(page).to have_content "Logged in as #{logged_in_user.name}"
       end
     end
 
