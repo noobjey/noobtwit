@@ -11,3 +11,6 @@
 /log/*
 !/log/.keep
 /tmp
+
+# ignore rspec file that holds data between test runs
+spec/examples.txt
