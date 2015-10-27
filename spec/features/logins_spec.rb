@@ -41,6 +41,8 @@ RSpec.feature "Logins", type: :feature do
       end
 
       it "sees their dashboard" do
+        visit root_path
+
         expect(current_path).to eq(dashboard_path)
       end
     end
