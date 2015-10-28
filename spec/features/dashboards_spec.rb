@@ -1,6 +1,8 @@
 require 'rails_helper'
 require 'support/login_helper'
 
+
+
 RSpec.feature "Dashboards:", type: :feature do
 
   include Capybara::DSL
@@ -46,34 +48,33 @@ RSpec.feature "Dashboards:", type: :feature do
       end
 
       it "sees their twitter name" do
-        within(".basic-info") do
-          expect(page).to have_content(logged_in_user.name)
-        end
+        has_basic_info?(logged_in_user.name)
       end
 
       it "sees their twitter screen name" do
-        within(".basic-info") do
-          expect(page).to have_content(logged_in_user.screen_name)
-        end
+        has_basic_info?(logged_in_user.screen_name)
       end
 
       it "sees the number of tweets they have" do
-        within(".basic-info") do
-          expect(page).to have_content("Tweets: 88")
-        end
+        has_basic_info?("Tweets: 88")
       end
 
       it "sees the number of followers" do
-        within(".basic-info") do
-          expect(page).to have_content("Followers: 54")
-        end
+        has_basic_info?("Followers: 54")
       end
 
       it "sees the number of following" do
-        within(".basic-info") do
-          expect(page).to have_content("Following: 65")
-        end
+        has_basic_info?("Following: 65")
       end
+    end
+  end
+
+
+  private
+
+  def has_basic_info?(content)
+    within(".basic-info") do
+      expect(page).to have_content(content)
     end
   end
 
