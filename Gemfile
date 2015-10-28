@@ -14,17 +14,21 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'omniauth-twitter'
 gem 'figaro'
 gem 'rails_12factor', group: :production
+gem 'hurley'
+gem 'twitter'
 
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
 end
 
-group :development, :test do
+group :test do
   gem 'rspec-rails'
   gem 'database_cleaner'
   gem 'simplecov'
   gem 'guard-rspec'
   gem 'launchy'
   gem 'capybara'
+  gem 'vcr'
+  gem 'webmock'
 end
