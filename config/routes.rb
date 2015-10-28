@@ -10,5 +10,5 @@ Rails.application.routes.draw do
 
   get 'dashboard', to: 'dashboard#index'
 
-  resource :user, only: [:update]
+  resource :users, only: [:update]
 end

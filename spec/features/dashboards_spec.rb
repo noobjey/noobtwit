@@ -54,7 +54,7 @@ RSpec.feature "Dashboards:", type: :feature do
       end
 
       it "sees the number of tweets they have" do
-        has_basic_info?("Tweets: 88")
+        has_basic_info?("Tweets: 89")
       end
 
       it "sees the number of followers" do
@@ -69,6 +69,22 @@ RSpec.feature "Dashboards:", type: :feature do
         expect(find_by_id("profile-picture")["src"]).to eq("https://pbs.twimg.com/profile_images/488101956/noobjEdit_normal.jpg")
       end
 
+      it "can post a new tweet" do
+        VCR.use_cassette('twitter create tweet') do
+          message = "This is just a (to lazy to create a test account) playing with the api test tweet, please ignore."
+
+          within(".create-tweet") do
+            fill_in("user[tweet]", with: message)
+            click_on("Submit")
+          end
+
+          within(".feed-container") do
+            expect(page).to have_content(logged_in_user.name)
+            expect(page).to have_content(logged_in_user.screen_name)
+            expect(page).to have_content(message)
+          end
+        end
+      end
     end
   end
 
