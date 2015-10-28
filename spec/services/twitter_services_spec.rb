@@ -18,4 +18,24 @@ RSpec.feature "TwitterServices:", type: :feature do
     end
   end
 
+  it "#followers" do
+    VCR.use_cassette('twitter user info') do
+      service = TwitterService.new(@user)
+
+      followers = service.followers
+
+      expect(followers).to eq(54)
+    end
+  end
+
+  it "#following" do
+    VCR.use_cassette('twitter user info') do
+      service = TwitterService.new(@user)
+
+      following = service.following
+
+      expect(following).to eq(65)
+    end
+  end
+
 end

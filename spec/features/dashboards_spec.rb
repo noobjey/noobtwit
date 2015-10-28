@@ -63,6 +63,17 @@ RSpec.feature "Dashboards:", type: :feature do
         end
       end
 
+      it "sees the number of followers" do
+        within(".basic-info") do
+          expect(page).to have_content("Followers: 54")
+        end
+      end
+
+      it "sees the number of following" do
+        within(".basic-info") do
+          expect(page).to have_content("Following: 65")
+        end
+      end
     end
   end
 

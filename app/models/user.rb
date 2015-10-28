@@ -20,11 +20,11 @@ class User < ActiveRecord::Base
   end
 
   def number_of_followers
-    "23"
+    twitter_service.followers()
   end
 
   def number_of_following
-    "43"
+    twitter_service.following()
   end
 
   def tweet

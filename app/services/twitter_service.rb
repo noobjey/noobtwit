@@ -15,6 +15,21 @@ class TwitterService
   end
 
   def my_tweet_count
-    client.user(user.screen_name).statuses_count
+    user_info.statuses_count
+  end
+
+
+  def followers
+    user_info.followers_count
+  end
+
+  def following
+    user_info.friends_count
+  end
+
+  private
+
+  def user_info
+    @user_info ||= client.user(user.screen_name)
   end
 end
