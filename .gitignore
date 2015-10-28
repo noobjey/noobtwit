@@ -20,3 +20,6 @@ spec/examples.txt
 
 # file holding auth return info
 oauth_return.json
+
+# simplecov
+coverage/
