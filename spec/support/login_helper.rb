@@ -20,16 +20,26 @@ module LoginHelper
   end
 
   def login_user()
-    Capybara.app = Noobtwit::Application
-    stub_omniauth
-    visit root_path
+      Capybara.app = Noobtwit::Application
+      stub_omniauth
+      visit root_path
 
-    click_on "Login with Twitter"
-    expect(current_path).to eq(dashboard_path)
+      click_on "Login with Twitter"
+      expect(current_path).to eq(dashboard_path)
   end
 
   def logged_in_user()
     User.find_by(uid: '84891952')
+  end
+
+  def create_twitter_user()
+    User.create(
+      uid:                '84891952',
+      name:               'Jason Wright',
+      screen_name:        'noobjey',
+      oauth_token:        '84891952-N6wBz8PfWIXDlXdMzCJdChM0Bcj4nlQdbDCx4d2yj',
+      oauth_token_secret: 'yVsJTKGfpVJy74ShYVkhLiWal8W3L8TgcSbazvzh3wZWY'
+    )
   end
 
 end

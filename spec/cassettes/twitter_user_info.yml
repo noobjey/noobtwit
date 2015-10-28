@@ -1,0 +1,86 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.twitter.com/1.1/users/show.json?screen_name=noobjey
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - TwitterRubyGem/5.15.0
+      Authorization:
+      - OAuth oauth_consumer_key="3zM8Bfctd4FsGDERkjih6KlrX", oauth_nonce="3f6bdebcc8e1b78534be3e970fe9995c",
+        oauth_signature="bWlCEv5tl1PJ8RJMWb%2BB1upnBMg%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1446000639", oauth_token="84891952-N6wBz8PfWIXDlXdMzCJdChM0Bcj4nlQdbDCx4d2yj",
+        oauth_version="1.0"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      Content-Disposition:
+      - attachment; filename=json.json
+      Content-Length:
+      - '964'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Wed, 28 Oct 2015 02:50:40 GMT
+      Expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      Last-Modified:
+      - Wed, 28 Oct 2015 02:50:40 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - tsa_a
+      Set-Cookie:
+      - guest_id=v1%3A144600064008774398; Domain=.twitter.com; Path=/; Expires=Fri,
+        27-Oct-2017 02:50:40 UTC
+      - lang=en; Path=/
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Access-Level:
+      - read-write
+      X-Connection-Hash:
+      - e54e4cc703910196e37aaa84ea23a44d
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Rate-Limit-Limit:
+      - '180'
+      X-Rate-Limit-Remaining:
+      - '179'
+      X-Rate-Limit-Reset:
+      - '1446001540'
+      X-Response-Time:
+      - '53'
+      X-Transaction:
+      - d1f24ba0dd7f2e89
+      X-Twitter-Response-Tags:
+      - BouncerCompliant
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":84891952,"id_str":"84891952","name":"Jason Wright","screen_name":"noobjey","location":"Boulder,
+        CO","profile_location":{"id":"fd70c22040963ac7","url":"https:\/\/api.twitter.com\/1.1\/geo\/id\/fd70c22040963ac7.json","place_type":"unknown","name":"Boulder,
+        CO","full_name":"Boulder, CO","country_code":"","country":"","contained_within":[],"bounding_box":null,"attributes":{}},"description":"Developer","url":null,"entities":{"description":{"urls":[]}},"protected":false,"followers_count":54,"friends_count":65,"listed_count":0,"created_at":"Sat
+        Oct 24 17:00:47 +0000 2009","favourites_count":149,"utc_offset":-21600,"time_zone":"Mountain
+        Time (US & Canada)","geo_enabled":false,"verified":false,"statuses_count":88,"lang":"en","status":{"created_at":"Mon
+        Jun 08 23:52:41 +0000 2015","id":608059099415232512,"id_str":"608059099415232512","text":"Your
+        Superhero match is Batroc","source":"\u003ca href=\"https:\/\/marvel-us.herokuapp.com\/\"
+        rel=\"nofollow\"\u003emarvelus\u003c\/a\u003e","truncated":false,"in_reply_to_status_id":null,"in_reply_to_status_id_str":null,"in_reply_to_user_id":null,"in_reply_to_user_id_str":null,"in_reply_to_screen_name":null,"geo":null,"coordinates":null,"place":null,"contributors":null,"retweet_count":0,"favorite_count":0,"entities":{"hashtags":[],"symbols":[],"user_mentions":[],"urls":[]},"favorited":false,"retweeted":false,"lang":"en"},"contributors_enabled":false,"is_translator":false,"is_translation_enabled":false,"profile_background_color":"1A1B1F","profile_background_image_url":"http:\/\/abs.twimg.com\/images\/themes\/theme9\/bg.gif","profile_background_image_url_https":"https:\/\/abs.twimg.com\/images\/themes\/theme9\/bg.gif","profile_background_tile":false,"profile_image_url":"http:\/\/pbs.twimg.com\/profile_images\/488101956\/noobjEdit_normal.jpg","profile_image_url_https":"https:\/\/pbs.twimg.com\/profile_images\/488101956\/noobjEdit_normal.jpg","profile_link_color":"2FC2EF","profile_sidebar_border_color":"181A1E","profile_sidebar_fill_color":"252429","profile_text_color":"666666","profile_use_background_image":true,"has_extended_profile":false,"default_profile":false,"default_profile_image":false,"following":false,"follow_request_sent":false,"notifications":false,"suspended":false,"needs_phone_verification":false}'
+    http_version: 
+  recorded_at: Wed, 28 Oct 2015 02:50:40 GMT
+recorded_with: VCR 2.9.3

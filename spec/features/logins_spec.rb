@@ -1,7 +1,7 @@
 require 'rails_helper'
 require 'support/login_helper'
 
-RSpec.feature "Logins", type: :feature do
+RSpec.feature "Logins:", type: :feature do
 
   include Capybara::DSL
   include LoginHelper
@@ -26,24 +26,30 @@ RSpec.feature "Logins", type: :feature do
       end
 
       it "can login" do
-        click_on login_button
+        VCR.use_cassette('twitter user info') do
+          click_on login_button
 
-        expect(current_path).to eq dashboard_path
-        expect(page).to have_content "Logged in as #{logged_in_user.name}"
+          expect(current_path).to eq dashboard_path
+          expect(page).to have_content "Logged in as #{logged_in_user.name}"
+        end
       end
     end
 
 
     context "and has already logged in" do
-
       before do
-        login_user()
+        VCR.use_cassette('twitter user info') do
+          visit root_path
+          click_on login_button
+        end
       end
 
       it "sees their dashboard" do
-        visit root_path
+        VCR.use_cassette('twitter user info') do
+          visit root_path
 
-        expect(current_path).to eq(dashboard_path)
+          expect(current_path).to eq(dashboard_path)
+        end
       end
     end
   end
