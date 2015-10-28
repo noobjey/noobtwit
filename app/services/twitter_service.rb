@@ -34,6 +34,10 @@ class TwitterService
     client.home_timeline
   end
 
+  def tweet(text)
+    client.update(text)
+  end
+
   private
 
   def user_info

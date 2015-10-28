@@ -27,8 +27,8 @@ class User < ActiveRecord::Base
     twitter_service.following()
   end
 
-  def tweet
-    #   send info to service to add tweet
+  def tweet(text)
+    twitter_service.tweet(text)
   end
 
   def feed

@@ -35,8 +35,17 @@ RSpec.feature "TwitterServices:", type: :feature do
 
   it "#time_line" do
     VCR.use_cassette('twitter time line') do
-      tweets = @service.time_line
-      expect(tweets.count).to eq(20)
+      expect(@service.time_line.count).to eq(20)
+    end
+  end
+
+  it "#tweet" do
+    VCR.use_cassette('twitter tweet') do
+      message = "This is just a (to lazy to create a test account) playing with the api test tweet, please ignore."
+      result = @service.tweet(message)
+
+      expect(result.user.name).to eq(logged_in_user.name)
+      expect(result.text).to eq(message)
     end
   end
 
