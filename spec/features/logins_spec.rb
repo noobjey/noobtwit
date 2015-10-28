@@ -26,7 +26,7 @@ RSpec.feature "Logins:", type: :feature do
       end
 
       it "can login" do
-        VCR.use_cassette('twitter user info') do
+        VCR.use_cassette('twitter dashboard') do
           click_on login_button
 
           expect(current_path).to eq dashboard_path
@@ -38,14 +38,14 @@ RSpec.feature "Logins:", type: :feature do
 
     context "and has already logged in" do
       before do
-        VCR.use_cassette('twitter user info') do
+        VCR.use_cassette('twitter dashboard') do
           visit root_path
           click_on login_button
         end
       end
 
       it "sees their dashboard" do
-        VCR.use_cassette('twitter user info') do
+        VCR.use_cassette('twitter dashboard') do
           visit root_path
 
           expect(current_path).to eq(dashboard_path)

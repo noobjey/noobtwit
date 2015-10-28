@@ -33,4 +33,11 @@ RSpec.feature "TwitterServices:", type: :feature do
     end
   end
 
+  it "#time_line" do
+    VCR.use_cassette('twitter time line') do
+      tweets = @service.time_line
+      expect(tweets.count).to eq(20)
+    end
+  end
+
 end
