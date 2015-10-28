@@ -20,14 +20,18 @@ RSpec.feature "Dashboards:", type: :feature do
 
 
   context "a user who is logged in" do
-
     before do
-      login_user()
+      VCR.use_cassette('twitter user info') do
+        login_user
+      end
     end
+
 
     context "visits the dashboard page" do
       before do
-        visit dashboard_path
+        VCR.use_cassette('twitter user info') do
+          visit dashboard_path
+        end
       end
 
       it "and can logout" do
@@ -40,6 +44,25 @@ RSpec.feature "Dashboards:", type: :feature do
         visit dashboard_path
         expect(current_path).to eq root_path
       end
+
+      it "sees their twitter name" do
+        within(".basic-info") do
+          expect(page).to have_content(logged_in_user.name)
+        end
+      end
+
+      it "sees their twitter screen name" do
+        within(".basic-info") do
+          expect(page).to have_content(logged_in_user.screen_name)
+        end
+      end
+
+      it "sees the number of tweets they have" do
+        within(".basic-info") do
+          expect(page).to have_content("Tweets: 88")
+        end
+      end
+
     end
   end
 
