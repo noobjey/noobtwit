@@ -22,4 +22,4 @@ spec/examples.txt
 oauth_return.json
 
 # simplecov
-coverage/
+coverage/*
