@@ -1,8 +1,6 @@
 require 'rails_helper'
 require 'support/login_helper'
 
-
-
 RSpec.feature "Dashboards:", type: :feature do
 
   include Capybara::DSL
@@ -23,7 +21,7 @@ RSpec.feature "Dashboards:", type: :feature do
 
   context "a user who is logged in" do
     before do
-      VCR.use_cassette('twitter user info') do
+      VCR.use_cassette('twitter dashboard') do
         login_user
       end
     end
@@ -31,7 +29,7 @@ RSpec.feature "Dashboards:", type: :feature do
 
     context "visits the dashboard page" do
       before do
-        VCR.use_cassette('twitter user info') do
+        VCR.use_cassette('twitter dashboard') do
           visit dashboard_path
         end
       end

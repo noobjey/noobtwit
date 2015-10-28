@@ -90,12 +90,12 @@
       <% current_user.feed.each do |tweet| %>
         <div class="panel panel-default">
           <div class="panel-heading">
-            <span><strong><%= tweet[:name] %></strong></span>
-            <span><%= tweet[:screen_name] %></span>
-            <span><%= tweet[:created_at] %></span>
+            <span><strong><%= tweet.user.name %></strong></span>
+            <span><%= tweet.user.screen_name %></span>
+            <span><%= tweet.created_at %></span>
           </div>
           <div class="panel-body">
-            <p><%= tweet[:text] %></p>
+            <p><%= tweet.text %></p>
           </div>
         </div>
       <% end %>
