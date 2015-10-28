@@ -66,6 +66,11 @@ RSpec.feature "Dashboards:", type: :feature do
       it "sees the number of following" do
         has_basic_info?("Following: 65")
       end
+
+      it "sees their profile picture" do
+        expect(find_by_id("profile-picture")["src"]).to eq("https://pbs.twimg.com/profile_images/488101956/noobjEdit_normal.jpg")
+      end
+
     end
   end
 

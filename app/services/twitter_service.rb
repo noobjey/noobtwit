@@ -27,6 +27,10 @@ class TwitterService
     user_info.friends_count
   end
 
+  def profile_pic
+    user_info.profile_image_uri_https.to_s
+  end
+
   private
 
   def user_info

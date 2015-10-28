@@ -27,4 +27,10 @@ RSpec.feature "TwitterServices:", type: :feature do
     end
   end
 
+  it "#profile_pic" do
+    VCR.use_cassette('twitter user info') do
+      expect(@service.profile_pic).to eq("https://pbs.twimg.com/profile_images/488101956/noobjEdit_normal.jpg")
+    end
+  end
+
 end

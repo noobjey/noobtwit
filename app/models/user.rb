@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   end
 
   def profile_pic
-    "https://pbs.twimg.com/profile_images/488101956/noobjEdit_bigger.jpg"
+    twitter_service.profile_pic
   end
 
   def number_of_tweets
