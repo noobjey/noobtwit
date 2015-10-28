@@ -18,7 +18,6 @@ class TwitterService
     user_info.statuses_count
   end
 
-
   def followers
     user_info.followers_count
   end
@@ -29,6 +28,10 @@ class TwitterService
 
   def profile_pic
     user_info.profile_image_uri_https.to_s
+  end
+
+  def time_line
+    client.home_timeline
   end
 
   private
