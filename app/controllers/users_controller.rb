@@ -1,16 +1,15 @@
 class UsersController < ApplicationController
   def update
     if current_user
-      UpdateTweet.new(current_user, params).go
+      UpdateTweet.new(current_user, user_params).go
     end
-
     redirect_to dashboard_path
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:tweet)
+    params.permit(:user, :tweet, :tweet_id)
   end
 end
 
