@@ -32,15 +32,15 @@ class UpdateTweet
   end
 
   def create_tweet?
-    !params[:tweet].nil?
+    !params[:user].nil? && !params[:user][:tweet].nil?
   end
 
   def legit_tweet?
-    tweet_not_empty? && valid_length?(params[:tweet])
+    tweet_not_empty? && valid_length?(params[:user][:tweet])
   end
 
   def tweet_not_empty?
-    !params[:tweet].empty?
+    !params[:user][:tweet].empty?
   end
 
   def valid_length?(tweet)
