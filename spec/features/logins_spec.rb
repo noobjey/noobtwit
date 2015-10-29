@@ -30,7 +30,11 @@ RSpec.feature "Logins:", type: :feature do
           click_on login_button
 
           expect(current_path).to eq dashboard_path
-          expect(page).to have_content "Logged in as #{logged_in_user.name}"
+          expect(page).to have_content "Logout"
+
+          within(".basic-info") do
+            expect(page).to have_content(logged_in_user.name)
+          end
         end
       end
     end
