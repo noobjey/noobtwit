@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def update
     if current_user
-      UpdateTweet.new(current_user, user_params).go
+      UpdateTweet.new(current_user, user_params, flash).go
     end
     redirect_to dashboard_path
   end

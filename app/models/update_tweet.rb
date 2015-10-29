@@ -1,10 +1,12 @@
 class UpdateTweet
   attr_reader :user,
-              :params
+              :params,
+              :flash
 
-  def initialize(user, params)
+  def initialize(user, params, flash)
     @user   = user
     @params = params
+    @flash = flash
   end
 
   def go
@@ -13,8 +15,9 @@ class UpdateTweet
       flash[:success] = "Tweet posted."
     elsif favorite?
       user.favorite(params[:tweet])
+      flash[:success] = "Tweet favorited."
     else
-      flash[:error] = "There was an error posting your tweet, please try again."
+      flash[:danger] = "There was an error posting your tweet, please try again."
     end
   end
 
@@ -26,19 +29,19 @@ class UpdateTweet
   end
 
   def favorite?
-    params[:tweet_id]
+    !params[:tweet_id].nil?
   end
 
   def create_tweet?
-    params[:user] && params[:user][:tweet]
+    !params[:tweet].nil?
   end
 
   def legit_tweet?
-    tweet_not_empty? && valid_length?(params[:user][:tweet])
+    tweet_not_empty? && valid_length?(params[:tweet])
   end
 
   def tweet_not_empty?
-    !params[:user][:tweet].empty?
+    !params[:tweet].empty?
   end
 
   def valid_length?(tweet)
