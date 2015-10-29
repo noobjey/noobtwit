@@ -3,6 +3,8 @@ class UsersController < ApplicationController
     if current_user && legit_tweet?
       current_user.tweet(params[:user][:tweet])
       flash[:success] = "Tweet posted."
+    elsif current_user && params[:tweet_id]
+      current_user.favorite(params[:tweet_id])
     else
       flash[:error] = "There was an error posting your tweet, please try again."
     end

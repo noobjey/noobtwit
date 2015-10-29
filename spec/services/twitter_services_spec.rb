@@ -49,4 +49,15 @@ RSpec.feature "TwitterServices:", type: :feature do
     end
   end
 
+  it "#favorite" do
+    VCR.use_cassette('twitter favorite tweet') do
+      tweet_id = "659589258596982784"
+      tweet = @service.favorite(tweet_id)
+
+      expect(tweet.favorited?).to eq(true)
+    end
+  end
+
+
+
 end
