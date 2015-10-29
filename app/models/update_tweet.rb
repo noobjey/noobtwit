@@ -14,7 +14,7 @@ class UpdateTweet
       user.tweet(params[:user][:tweet])
       flash[:success] = "Tweet posted."
     elsif favorite?
-      user.favorite(params[:tweet])
+      user.favorite(params[:tweet_id])
     else
       flash[:danger] = "There was an error posting your tweet, please try again."
     end
