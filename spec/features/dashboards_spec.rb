@@ -85,6 +85,24 @@ RSpec.feature "Dashboards:", type: :feature do
           end
         end
       end
+
+      it "can favorite a tweet" do
+        VCR.use_cassette('twitter favorite tweet') do
+          within(".feed-container") do
+
+            first_tweet = first(".panel-heading")
+
+            within(first_tweet) do
+              favorite_link = first_tweet.first("a")
+              favorite_link.click
+            end
+
+            within(first_tweet) do
+              expect(find("i")[:class]).to have_content("glyphicon-star")
+            end
+          end
+        end
+      end
     end
   end
 

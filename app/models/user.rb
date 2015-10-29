@@ -35,6 +35,10 @@ class User < ActiveRecord::Base
     twitter_service.time_line
   end
 
+  def favorite(tweet_id)
+    twitter_service.favorite(tweet_id)
+  end
+
 
   private
 

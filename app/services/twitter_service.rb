@@ -38,6 +38,10 @@ class TwitterService
     client.update(text)
   end
 
+  def favorite(tweet_id)
+    client.favorite(tweet_id).first
+  end
+
   private
 
   def user_info
